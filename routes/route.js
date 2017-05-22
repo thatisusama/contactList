@@ -22,7 +22,7 @@ router.post('/contacts', (req, res, next) => {
         if (err) {
             res.json({ msg: 'failed to add contact' });
         } else {
-            res.json({ msg: 'contact hasbeen added' });
+            res.json({ msg: 'contact has been added' });
         }
     });
 });

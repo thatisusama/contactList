@@ -20,7 +20,6 @@ mongoose.connection.on('error', (err) => {
     if (err) {
         console.log(err);
     }
-    console.log('connected..........!');
 });
 
 //port no
@@ -44,5 +43,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('server started at port' + port);
+    console.log('server started at port: ' + port);
 });
