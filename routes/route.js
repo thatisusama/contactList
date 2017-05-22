@@ -17,13 +17,6 @@ router.get('/contacts/:id', (req, res, next) => {
     });
 });
 
-router.put('/contacts/:id', (req, res, next) => {
-    Contact.findByIdAndUpdate(req.params.id, req.body, function(err, contacts) {
-        res.json(req.body);
-    });
-
-});
-
 // add contact Post
 router.post('/contacts', (req, res, next) => {
     let newContact = new Contact({
@@ -38,6 +31,14 @@ router.post('/contacts', (req, res, next) => {
             res.json({ msg: 'contact has been added' });
         }
     });
+});
+
+// update contact Put
+router.put('/contacts/:id', (req, res, next) => {
+    Contact.findByIdAndUpdate(req.params.id, req.body, function(err, contacts) {
+        res.json(req.body);
+    });
+
 });
 
 // delete contact Delete
