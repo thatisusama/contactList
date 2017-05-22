@@ -3,13 +3,26 @@ const router = express.Router();
 
 const Contact = require('../models/contacts');
 
-// retriving contacts Get
+// retriving all contacts Get
 router.get('/contacts', (req, res, next) => {
     Contact.find(function(err, contacts) {
         res.json(contacts);
     });
 });
 
+// retriving single contact Get
+router.get('/contacts/:id', (req, res, next) => {
+    Contact.findById({ _id: req.params.id }, function(err, contacts) {
+        res.json(contacts);
+    });
+});
+
+router.put('/contacts/:id', (req, res, next) => {
+    Contact.findByIdAndUpdate(req.params.id, req.body, function(err, contacts) {
+        res.json(req.body);
+    });
+
+});
 
 // add contact Post
 router.post('/contacts', (req, res, next) => {
